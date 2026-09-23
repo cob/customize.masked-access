@@ -22,21 +22,21 @@ if (!rmInstanceReadResult.success()) {
 def definitionResponse = recordm.getDefinition(rmInstanceReadResult.getBody().jsonDefinition.name)
 def definition = definitionResponse.getBody()
 if (definition == null) {
-    return json(400, ["error": "Definition not found"])
+    return json(404, ["error": "Definition not found"])
 }
 
 
 // Only allows to get the fields
 def sourceInstance = rmInstanceReadResult.getBody()
-def rootInstanceFields = sourceInstance.getFields()
-def sourceField = findInstanceField(rootInstanceFields, maskedAccessFieldDefId)
+def instanceFields = sourceInstance.getFields()
+def sourceField = findInstanceField(instanceFields, maskedAccessFieldDefId)
 if (sourceField == null) {
     return json(404, ["error": "not found"])
 }
 
 def maskedFieldConfiguration = definition.getField(maskedAccessFieldDefId.toInteger()).getConfiguration()
 if (maskedFieldConfiguration == null) {
-    return json(400, ["error": "Masked field definition not found"])
+    return json(404, ["error": "Masked field definition not found"])
 }
 
 def maskedAccessConf = maskedFieldConfiguration.getArgsFor("\$maskedAccess").args
@@ -50,7 +50,7 @@ if (targetDefinition == null || targetField == null) {
 
 // Exclude possible $restricted fields. If not in the source instance then we ignore
 // Extract the target field from the configuration
-def targetFieldsName = maskedInfoFieldDefIds.collect { fdId -> findInstanceField(rootInstanceFields, fdId.toInteger()) }
+def targetFieldsName = maskedInfoFieldDefIds.collect { fdId -> findInstanceField(instanceFields, fdId.toInteger()) }
         .findAll { it != null }
         .collect { it ->
             def fieldConf = definition.getField(it.fieldDefinition.id).getConfiguration()?.getArgsFor("\$maskedInfo")?.args ?: []
@@ -106,15 +106,11 @@ if (createResult.success()) {
 }
 
 
-def static findInstanceField(fieldsList, fieldDefId) {
+def findInstanceField(fieldsList, fieldDefId) {
     for (int i = 0; i < fieldsList.size(); i++) {
         def field = fieldsList[i];
         if (field.fieldDefinition.id == fieldDefId) {
             return field
-        }
-
-        if (field.fields) {
-            return findInstanceField(field.fields, fieldDefId)
         }
     }
 

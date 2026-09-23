@@ -35,7 +35,7 @@ cob.custom.customize.push(function (core, utils, ui) {
 
                 // Replace all fields with new fields that will not be attached to the instance.
                 // With this change we can set values into these fields that they will not sent when updating the instance
-                maskedGroupFP.getChildPs().filter(fp => fp.getField().fieldDefinition.configuration.extensions[KEYWORD_MASKED_INFO])
+                presenter.findFieldPsUnder(maskedGroupFP, fp => fp.getField().fieldDefinition.configuration.extensions[KEYWORD_MASKED_INFO])
                     .forEach(sFp => {
                         // disable the field. This field will never hold any information.
                         sFp.disable();
