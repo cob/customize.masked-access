@@ -1,0 +1,8 @@
+{
+  "masked-access": {
+    "update-click-text": "Haga clic aquí para actualizar",
+    "create-click-text": "Haga clic aquí para crear uno nuevo",
+    "not-available": "Solo disponible al editar una instancia",
+    "invalid-configuration": "Configuración no válida de la información del campo protegido"
+  }
+}

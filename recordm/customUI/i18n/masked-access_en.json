@@ -1,0 +1,8 @@
+{
+  "masked-access": {
+    "update-click-text": "Click here to update",
+    "create-click-text": "Click here to create new",
+    "not-available": "Only available when editing an instance",
+    "invalid-configuration": "Invalid masked field info configuration"
+  }
+}
