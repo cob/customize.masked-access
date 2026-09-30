@@ -65,7 +65,9 @@ def referencedInstanceId = ""
 if (results.getTotal() > 0) {
     def hit = results.getHits().get(0)
     referencedInstanceId = hit.getId()
-    targetFieldsName.each { it -> values[it] = hit.value(it) }
+
+    def referencedInstance = recordm.get(referencedInstanceId).getBody()
+    targetFieldsName.each { it -> values[it] = referencedInstance.value(it) }
 }
 
 // If the secured field group has a $restricted then the user must belong to one of the groups
