@@ -1,0 +1,14 @@
+runner
+*.ids
+*.iml
+*.ipr
+*.iws
+.idea
+target
+classes
+*.swp
+release.properties
+localconf
+out
+recordm-*.bin
+node_modules

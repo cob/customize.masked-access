@@ -1,0 +1,10 @@
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation=" http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd"
+           default-activation="eager">
+
+    <bean id="maskedAccessValidator" class="com.cultofbits.customizations.validators.MaskedAccessValidator"/>
+    <service ref="maskedAccessValidator" interface="com.cultofbits.recordm.customvalidators.api.OnCreateValidator"/>
+    <service ref="maskedAccessValidator" interface="com.cultofbits.recordm.customvalidators.api.OnUpdateValidator"/>
+
+</blueprint>

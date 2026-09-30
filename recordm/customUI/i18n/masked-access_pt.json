@@ -3,6 +3,7 @@
     "update-click-text": "Clique aqui para actualizar",
     "create-click-text": "Clique aqui para criar novo",
     "not-available": "Apenas disponível ao editar uma instância",
-    "invalid-configuration": "Configuração inválida da informação do campo protegido"
+    "invalid-configuration": "Configuração inválida da informação do campo protegido",
+    "readonly-field": "Campo só de leitura"
   }
 }
