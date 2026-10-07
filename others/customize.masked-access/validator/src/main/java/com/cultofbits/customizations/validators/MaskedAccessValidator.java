@@ -37,7 +37,7 @@ public class MaskedAccessValidator extends AbstractOnCreateValidator implements 
                 continue;
             }
 
-            if (field.getValue() == null) {
+            if (field.getValue() != null) {
                 if (field.fieldDefinition.containsExtension(MASKED_ACCESS_KEYWORD)
                         || field.fieldDefinition.containsExtension(MASKED_INFO_KEYWORD)) {
                     return Collections.singletonList(localized(field, "masked-access", "masked-access.readonly-field"));
