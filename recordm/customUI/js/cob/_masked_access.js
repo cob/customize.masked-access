@@ -67,7 +67,7 @@ cob.custom.customize.push(function (core, utils, ui) {
                 maskedGroupHtml.querySelector(".group-name")
                     .insertAdjacentHTML(
                         "afterend",
-                        "<div class=\"js-masked-values-edit-link inline cursor-pointer text-sm hidden\" style=\"margin-left: 20px; vertical-align:middle; color: #39c;\">" +
+                        "<div class=\"js-masked-values-edit-link inline text-sm hidden\" style=\"margin-left: 20px; vertical-align:middle; color: #39c; cursor: pointer;\">" +
                         `   (${core.translateString("masked-access", "masked-access.update-click-text", "localresource/i18n")}) ` +
                         " </div>",
                     );
@@ -85,7 +85,7 @@ cob.custom.customize.push(function (core, utils, ui) {
                 maskedGroupHtml.querySelector(".cob-fields-list")
                     .insertAdjacentHTML(
                         "afterbegin",
-                        `<li class="js-masked-values-create-link cursor-pointer text-sm hidden" style="margin-left: 72px; vertical-align:middle; color: #39c;">` +
+                        `<li class="js-masked-values-create-link text-sm hidden" style="margin-left: 72px; vertical-align:middle; color: #39c; cursor: pointer;">` +
                         `   ${core.translateString("masked-access", "masked-access.create-click-text", "localresource/i18n")} ` +
                         " </li>",
                     );
